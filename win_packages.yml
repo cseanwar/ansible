@@ -1,0 +1,12 @@
+---
+- hosts: win
+  gather_facts: false
+  tasks:
+    - name: Manage firefox
+      win_chocolatey:
+        name: firefox
+        state: present
+    - name: Manage notepad++
+      win_chocolatey:
+        name: notepadplusplus
+        state: present

@@ -1,0 +1,7 @@
+---
+- hosts: win
+  tasks:
+    - name: Remove directory structure
+      win_file:
+        path: C:\DevOps
+        state: absent

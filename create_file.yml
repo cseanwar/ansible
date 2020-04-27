@@ -1,0 +1,7 @@
+---
+- hosts: win
+  tasks:
+    - name: Create file structure
+      win_file:
+        path: C:\DevOps\tentixo.txt
+        state: touch
