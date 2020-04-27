@@ -1,0 +1,9 @@
+---
+# handlers file for ntp
+
+- name: be sure ntpd is running and enabled
+  win_service:
+    name: w32time
+    state: restarted
+    enabled: yes
+  tags: ntp

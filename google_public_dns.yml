@@ -1,0 +1,3 @@
+- hosts: win
+  roles:
+      - google_public_dns

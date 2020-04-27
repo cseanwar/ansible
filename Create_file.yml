@@ -1,0 +1,6 @@
+- hosts: win
+  tasks:
+    - name: Create directory structure
+      win_file:
+        path: C:\DevOps\file.txt
+        state: touch

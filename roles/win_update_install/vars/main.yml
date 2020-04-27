@@ -1,0 +1,16 @@
+---
+# vars file for win_update_install
+
+win_updates_categories:
+      - SecurityUpdates
+      - CriticalUpdates
+      - UpdateRollups
+      - DefinitionUpdates
+      - Updates
+      - Application
+      - Connectors
+      - DeveloperKits
+      - FeaturePacks
+      - Guidence
+      - ServicePacks
+      - Tools

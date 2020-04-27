@@ -1,0 +1,12 @@
+---
+# tasks file for ntp
+
+- name: Start NTP service (w32time)
+  win_service:
+    name: w32time
+    state: started
+    start_mode: auto
+
+- name: Configure NTP
+  win_command: w32tm /config /manualpeerlist:"{{ ntp_server }}" /reliable:yes /update
+  changed_when: false

@@ -1,0 +1,10 @@
+---
+# tasks file for google_public_dns
+
+- name: set multiple lookup addresses on the adapter named Ethernet 2
+  win_dns_client:
+    adapter_names: Ethernet 2
+    ipv4_addresses:
+    - 8.8.8.8
+    - 8.8.4.4
+    log_path: C:\DevOps\dns_log.txt

@@ -1,0 +1,7 @@
+---
+# tasks file for create_file_folder
+
+- name: Create directory structure
+  win_file:
+    path: C:\DevOps
+    state: directory

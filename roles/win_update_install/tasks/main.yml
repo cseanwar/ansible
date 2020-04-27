@@ -1,0 +1,35 @@
+---
+# tasks file for win_update_install
+
+# Check for missing updates
+    - name: check for missing updates
+      win_updates:
+        state: searched
+        category_names: "{{ win_updates_categories }}"
+      register: update_count
+      ignore_errors: yes
+
+    - name: reboot if required
+      win_reboot:
+      when: update_count.reboot_required
+      ignore_errors: yes
+
+    # Install updates
+    - name: install updates
+      win_updates:
+        category_names: "{{ win_updates_categories }}"
+        reboot: yes
+      register: update_result
+
+    # One way to ensure the system is reliable just after a reboot, is to set WinRM to a delayed startup
+    - name: Ensure WinRM starts when the system has settled and is ready to work reliably
+      win_service:
+        name: WinRM
+        start_mode: delayed
+
+
+    # Optionally, you can increase the reboot_timeout to survive long updates during reboot
+    - name: Ensure we wait long enough for the updates to be applied during reboot
+      win_updates:
+        reboot: yes
+        reboot_timeout: 3600

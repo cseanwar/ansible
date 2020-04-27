@@ -1,0 +1,4 @@
+---
+- hosts: win
+  roles:
+      - win_update_install
